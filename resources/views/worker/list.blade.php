@@ -57,13 +57,13 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <div style="float:left" class="mb-4">
-                            <label for="from" style="width:160px">De:</label>
-                            <input class="form-control" type="date" v-model="from" placeholder="De:" style="width:160px" />
-                            <button class="btn btn-sm btn-primary mt-2" v-on:click="filterTasks()">Buscar</button>
+                            <label for="from">De:</label>
+                            <date-picker type="date" valueType="YYYY-MM-DD" v-model="from" :lang="lang" format="YYYY-MM-DD" :disabled-date="notAfterTo"></date-picker>                            
                         </div>
-                        <div style="float:left" class="mb-4 ml-4">
-                            <label for="to" style="width:160px">Hasta:</label>
-                            <input class="form-control" type="date" v-model="to" placeholder="Hasta:" style="width:160px" />
+                        <div style="float:left" class="mb-4 ml-2">
+                            <label for="to" >Hasta:</label>
+                            <date-picker type="date" valueType="YYYY-MM-DD" v-model="to" :lang="lang" format="YYYY-MM-DD" :disabled-date="notBeforeFrom"></date-picker>   
+                            <button class="btn btn-sm btn-primary ml-2 mb-1" v-on:click="filterTasks()"><i class="fa fa-search"></i></button>
                         </div>
 
 
@@ -120,7 +120,7 @@
                             </select>
                         </div>
                         <div style="float:right">
-                            <paginate-links for="tasks" :classes="{'ul': 'pagination', 'li': 'page-item', 'a': 'page-link'}" :show-step-links="true" :step-links="{next: '>>',prev: '<<'}"></paginate-links>
+                            <paginate-links for="tasks" :classes="{'ul': 'pagination', 'li': 'page-item', 'a': 'page-link'}" :show-step-links="true" :step-links="{next: '>',prev: '<'}"></paginate-links>
                         </div>
                     </div>
                 </div><!-- /.card-body -->

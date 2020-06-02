@@ -9,6 +9,9 @@ import VueSlider from 'vue-slider-component';
 import 'vue-slider-component/theme/default.css';
 import ToggleButton from 'vue-js-toggle-button';
 import excel from 'vue-excel-export'; 
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css'; 
+import 'vue2-datepicker/locale/es';
 
 Vue.use(VuePaginate);
 Vue.use(VueToast);
@@ -39,7 +42,13 @@ var VueTasks = new Vue({
     },
     json_data: tasks,
     paginate: ['tasks'],
-    showNumber:5
+    showNumber:5,
+    lang: {
+      formatLocale: {
+        firstDayOfWeek: 1,
+      },
+      monthBeforeYear: false,
+    },
   },
   computed: {
     filteredTaskNotes() {
@@ -55,6 +64,12 @@ var VueTasks = new Vue({
     
   },
   methods: {
+    notBeforeFrom(date) {
+      return date < this.from;
+    },
+    notAfterTo(date) {
+      return date > this.to;
+    },
     onChangeDateSort() {
       switch (this.sort) {
         case 'asc':

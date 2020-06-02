@@ -47,6 +47,7 @@
         "vue-slider-component": "^3.1.2",
         "vue-tables-2": "^2.0.28",
         "vue-toast-notification": "^0.2.0",
+        "vue2-datepicker": "^3.5.0",
         "vuejs-paginator": "^2.0.2"
     }
 }
