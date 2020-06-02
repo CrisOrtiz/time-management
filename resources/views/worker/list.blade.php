@@ -1,7 +1,6 @@
 @extends('layouts.worker-page')
 
 @section('styles')
-
 @stop
 
 @section('scripts')
@@ -58,11 +57,11 @@
                     <div class="table-responsive">
                         <div style="float:left" class="mb-4">
                             <label for="from">De:</label>
-                            <date-picker type="date" valueType="YYYY-MM-DD" v-model="from" :lang="lang" format="YYYY-MM-DD" :disabled-date="notAfterTo"></date-picker>                            
+                            <date-picker type="date" valueType="YYYY-MM-DD" v-model="from" :lang="lang" format="YYYY-MM-DD" :disabled-date="notAfterTo"></date-picker>
                         </div>
                         <div style="float:left" class="mb-4 ml-2">
-                            <label for="to" >Hasta:</label>
-                            <date-picker type="date" valueType="YYYY-MM-DD" v-model="to" :lang="lang" format="YYYY-MM-DD" :disabled-date="notBeforeFrom"></date-picker>   
+                            <label for="to">Hasta:</label>
+                            <date-picker type="date" valueType="YYYY-MM-DD" v-model="to" :lang="lang" format="YYYY-MM-DD" :disabled-date="notBeforeFrom"></date-picker>
                             <button class="btn btn-sm btn-primary ml-2 mb-1" v-on:click="filterTasks()"><i class="fa fa-search"></i></button>
                         </div>
 
@@ -88,13 +87,13 @@
                                     <th scope="col" colspan="2" style="width:20%">Opciones</th>
                                 </tr>
                             </thead>
-                            <tbody style="font-weight:bold;margin: 0 auto;font-size:115%;color:gray;">
+                            <tbody style="font-weight:bold;margin: 0 auto;font-size:115%;color:white;">
                                 <paginate name="tasks" :list="tasks" :per="showNumber">
                                     <tr v-for="task in  paginated('tasks')">
-                                        <td v-bind:style="[task.worked_hours < user.preferred_working_hours_per_day ? {'border-top': '3px solid #F47378','border-bottom': '3px solid #F47378','border-left': '3px solid #F47378'} : {'border-top': '4px solid #6BD089','border-bottom': '3px solid #6BD089','border-left': '3px solid #6BD089'}]">@{{ task.date }}</td>
-                                        <td v-bind:style="[task.worked_hours < user.preferred_working_hours_per_day ? {'border-top': '3px solid #F47378','border-bottom': '3px solid #F47378'} : {'border-top': '4px solid #6BD089','border-bottom': '3px solid #6BD089'}]">@{{ task.start }}</td>
-                                        <td v-bind:style="[task.worked_hours < user.preferred_working_hours_per_day ? {'border-top': '3px solid #F47378','border-bottom': '3px solid #F47378'} : {'border-top': '4px solid #6BD089','border-bottom': '3px solid #6BD089'}]">@{{ task.end }}</td>
-                                        <td v-bind:style="[task.worked_hours < user.preferred_working_hours_per_day ? {'border-top': '3px solid #F47378','border-bottom': '3px solid #F47378','border-right': '3px solid #F47378'} : {'border-top': '4px solid #6BD089','border-bottom': '3px solid #6BD089','border-right': '3px solid #6BD089'}]">@{{ task.worked_hours }}</td>
+                                        <td v-bind:style="[task.worked_hours < user.preferred_working_hours_per_day ? {'background-color':'#F47378'} : {'background-color':'#67E48B'}]">@{{ task.date }}</td>
+                                        <td v-bind:style="[task.worked_hours < user.preferred_working_hours_per_day ? {'background-color':'#F47378'} : {'background-color':'#67E48B'}]">@{{ task.start }}</td>
+                                        <td v-bind:style="[task.worked_hours < user.preferred_working_hours_per_day ? {'background-color':'#F47378'} : {'background-color':'#67E48B'}]">@{{ task.end }}</td>
+                                        <td v-bind:style="[task.worked_hours < user.preferred_working_hours_per_day ? {'background-color':'#F47378'} : {'background-color':'#67E48B'}]">@{{ task.worked_hours }}</td>
                                         <td>
                                             <button class="btn btn-secondary btn-notes btn-md" type="button" v-on:click="showNotesModal(task);">Ver notas<i class="fas fa-clipboard ml-2"></i></button>
                                         </td>
@@ -112,11 +111,11 @@
                             </tfoot>
                         </table>
                         <div style="float:left" class="ml-2">
-                        <label >Mostrar:</label>
+                            <label>Mostrar:</label>
                             <select v-model="showNumber">
                                 <option value="5">5</option>
                                 <option value="10">10</option>
-                                <option value="30">30</option>
+                                <option value="25">25</option>
                             </select>
                         </div>
                         <div style="float:right">
@@ -229,11 +228,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="start">Inicio:</label>
-                                        <input type="time" class="form-control" name="start" v-model="newTask.start" value="{{ old('start') }}">
+                                        <input type="time" class="form-control timepicker" name="start" v-model="newTask.start" value="{{ old('start') }}" max="newTask.end" >
                                     </div>
                                     <div class="form-group">
                                         <label for="end">Final:</label>
-                                        <input type="time" class="form-control" name="end" v-model="newTask.end" value="{{ old('end') }}">
+                                        <input type="time" class="form-control" name="end" v-model="newTask.end" value="{{ old('end') }}" min="newTask.start">
                                     </div>
                                 </section>
                                 <section class="Form__section">

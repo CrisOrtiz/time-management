@@ -12,6 +12,8 @@ import excel from 'vue-excel-export';
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/index.css'; 
 import 'vue2-datepicker/locale/es';
+import VueTimepicker from 'vue2-timepicker'
+import 'vue2-timepicker/dist/VueTimepicker.css'
 
 Vue.use(VuePaginate);
 Vue.use(VueToast);
@@ -365,4 +367,5 @@ var VueTasks = new Vue({
       this.editNotes.splice(-1, 1)
     },
   },
+  components: { VueTimepicker },
 });
