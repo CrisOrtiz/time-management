@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/api/vikor.com
+hooks:
+  BeforeInstall:
+    - location: .aws/codedeploy/beforeInstall.sh
+  AfterInstall:
+    - location: .aws/codedeploy/afterInstall.sh

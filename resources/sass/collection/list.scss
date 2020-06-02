@@ -1,0 +1,62 @@
+@import '../variables';
+
+.collection-detail {
+    width: 400px;
+    border: 1px solid #E4E7E9;
+    &__header {
+        padding: 8px 15px;
+        text-align: center;
+        font-weight: bold;
+        color: #fff;
+        font-size: 15px;
+        background: $blue;
+    }
+    &__body {
+        padding: 10px 0;
+        p {
+            padding: 8px 10px;
+            margin: 0;
+            border-bottom: 1px solid #E4E7E9;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        strong {
+            display: inline-block;
+            width: 250px
+        }
+    }
+}
+
+td.detail-control {
+    text-align: center;
+    cursor: pointer;
+    .fa-chevron-circle-down {
+        display: inline-block;
+    }
+    .fa-chevron-circle-up {
+        display: none;
+    }
+}
+tr.shown td.detail-control {
+    .fa-chevron-circle-down {
+        display: none;
+    }
+    .fa-chevron-circle-up {
+        display: inline-block;
+    }
+}
+
+.table > tbody > tr {
+    cursor: pointer;
+    &:hover {
+        background-color: rgba($blue, 50%);
+    }
+}
+
+.table > tbody > tr.shown + tr {
+    cursor: unset;
+    &:hover {
+        background-color: transparent;
+    }
+}

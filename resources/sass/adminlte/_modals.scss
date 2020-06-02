@@ -1,0 +1,152 @@
+//
+// Component: Modals
+//
+
+.modal {
+  border-radius: 25px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body .btn-loan-delete {
+  justify-self: flex-end;
+  align-self: flex-end;
+  margin-right: 15px;
+}
+
+.modal-body .btn-loan-delete:hover {
+  background-color: white;
+  color: #dc3545;
+  border: solid #dc3545 1.2px;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.close {
+  color: white;
+  padding: 0;
+}
+
+.close:hover {
+  color: #007bff;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.info-row {
+  display: flex;
+}
+
+.subtitle {
+  margin-left: 80px;
+}
+
+.loan-modal-data {
+  margin-left: auto;
+  margin-right: 100px;
+}
+
+.modal-data-container {
+  border: solid #bfbfbf 1px;
+  border-radius: 10px;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.payments {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  justify-content: flex-start;
+  border: solid #bfbfbf 1px;
+  border-radius: 10px;
+}
+
+.payment .btn {
+  width: 60px;
+  color: white;
+  font-weight: 600;
+}
+
+.payment {
+  display: flex;
+  margin-bottom: 10px;
+  padding: 2px;
+  flex-direction: column;
+  margin-left: 22px;
+  border: solid #bfbfbf 1px;
+  border-radius: 5px;
+}
+
+.payment-date {
+  text-align: center;
+  font-weight: 700;
+}
+
+.btn-payment-delete:hover {
+  background-color: white;
+  color: #dc3545;
+  border: solid #dc3545 1px;
+}
+
+.btn-payment:hover {
+  background-color: white;
+  color: #6d767e;
+}
+
+.new-task {
+  .modal-title {
+    font-weight: 900;
+  }
+  .map {
+    height: 500px;
+    border-radius: 12px;
+    border: solid #bfbfbf 1px;
+  }
+  .modal-header{
+    color:red;
+  }
+}
+
+// Overlay
+.modal-dialog {
+  .overlay {
+    background-color: $black;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: ($zindex-modal + 2);
+  }
+}
+
+// BG Color Variations Fixes
+.modal-content {
+  &.bg-warning {
+    .modal-header,
+    .modal-footer {
+      border-color: $gray-800;
+    }
+  }
+  &.bg-primary,
+  &.bg-secondary,
+  &.bg-info,
+  &.bg-danger,
+  &.bg-success {
+    .close {
+      color: $white;
+      text-shadow: 0 1px 0 #000;
+    }
+  }
+}
+

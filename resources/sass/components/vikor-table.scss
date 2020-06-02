@@ -1,0 +1,45 @@
+@import '../variables';
+
+.vikor-table {
+    background-color: #fff;
+    thead tr {
+        background-color: $blue;
+        th {
+            color: #fff !important;
+            padding-bottom: 5px !important;
+            box-sizing: border-box;
+        }
+    }
+    tbody td {
+        padding: 5px 20px !important;
+        vertical-align: middle !important;
+        box-sizing: border-box;
+    }
+    & th, & td {
+        border: none !important;
+        white-space: nowrap
+    }
+    tbody tr.odd {
+        background-color: #FFF;
+    }
+    tbody tr.even {
+        background-color: #F5F5F5;
+    }
+}
+
+table.vikor-table.dataTable thead .sorting:before,
+table.vikor-table.dataTable thead .sorting:after,
+table.vikor-table.dataTable thead .sorting_asc:before,
+table.vikor-table.dataTable thead .sorting_asc:after,
+table.vikor-table.dataTable thead .sorting_desc:before,
+table.vikor-table.dataTable thead .sorting_desc:after,
+table.vikor-table.dataTable thead .sorting_asc_disabled:before,
+table.vikor-table.dataTable thead .sorting_asc_disabled:after,
+table.vikor-table.dataTable thead .sorting_desc_disabled:before,
+table.vikor-table.dataTable thead .sorting_desc_disabled:after {
+    bottom: 8px;
+}
+
+div.container {
+    width: 80%;
+}
