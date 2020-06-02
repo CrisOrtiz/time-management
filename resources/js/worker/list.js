@@ -36,7 +36,7 @@ var VueTasks = new Vue({
     newNotes: [{ description: '' }],
     n: {},
     from: '',
-    to: '',
+    to: new Date(),
     sort: 'asc',
     json_fields: {
       'Fecha': 'date',
