@@ -43,6 +43,7 @@ var VueTasks = new Vue({
       'Tiempo total': 'worked_hours',
     },
     json_data: tasks,
+    excelFilteredNotes:{},
     paginate: ['tasks'],
     showNumber:5,
     lang: {
@@ -112,10 +113,12 @@ var VueTasks = new Vue({
             (response) => {
               console.log(response.data)
               if (response.data.length != 0) {
-                this.tasks = response.data
+                this.tasks = response.data;
+                this.json_data = this.tasks;
               } else {
                 Vue.$toast.warning('No se encontraron tareas')
-                this.tasks = response.data
+                this.tasks = response.data;
+                this.json_data = this.tasks;
               }
             },
             (error) => {
@@ -187,6 +190,7 @@ var VueTasks = new Vue({
             }
             this.newNotes = [{ description: '' }]
             Vue.$toast.success('Tarea guardada correctamente')
+            this.json_data = this.tasks;
           },
           (error) => {
             Vue.$toast.error(getRequestError(error))
@@ -246,6 +250,7 @@ var VueTasks = new Vue({
                 if (i !== -1) {
                   this.tasks.splice(i, 1)
                 }
+                this.json_data = this.tasks;
               },
               (error) => {
                 Vue.$toast.error(getRequestError(error))
@@ -321,10 +326,11 @@ var VueTasks = new Vue({
 
                   this.notes = response.data[1]
 
-                  console.log(this.notes)
+                  console.log(this.notes);
 
-                  this.editNotes = {}
-                  this.editTask = {}
+                  this.editNotes = {};
+                  this.editTask = {};
+                  this.json_data = this.tasks;
                 },
                 (error) => {
                   Vue.$toast.error(getRequestError(error))

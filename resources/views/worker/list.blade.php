@@ -71,7 +71,7 @@
                         </div>
 
                         <div style="float:right" class="mb-4">
-                            <export-excel class="btn btn-default mr-3" :data="json_data" :fields="json_fields" worksheet="Tareas" name="tareas.xls" title="TAREAS">
+                            <export-excel class="btn btn-default mr-3" :data="json_data" :fields="json_fields" worksheet="Tareas" name="tareas.xls" title="Tareas de {{$user->name}}">
                                 Descargar excel
                                 <i class="fa fa-download ml-2"></i>
                             </export-excel>

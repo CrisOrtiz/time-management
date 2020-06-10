@@ -45,6 +45,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('getsortedtasks', 'TaskController@getSortedTasks')->name('tasks.sorted.get');
         Route::resource('Task', 'TaskController');
         
+        //Excel export
+        Route::get('tasks/export', 'UsersController@export');
+        
     });
 
     Route::group(['prefix' => 'manager'], function () {

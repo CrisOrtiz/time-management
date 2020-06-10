@@ -7,6 +7,7 @@ use App\Transformers\TaskTransformer;
 use App\Transformers\NoteTransformer;
 use App\Models\Task;
 use App\Models\Note;
+use Carbon\Carbon;
 
 class TaskController extends Controller
 {
@@ -206,5 +207,9 @@ class TaskController extends Controller
             return response()->json($filteredTasks);
         }
     }
-    
+
+    public function export(Request $request) 
+    {
+        return Excel::download(new TasksExport($request), 'tasks.xlsx');
+    }
 }
